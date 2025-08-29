@@ -133,3 +133,12 @@ Some examples of packages that can likely be excluded are:
 "<path-to-isaac-sim>/extscache/omni.services.*"     // Services tools
 ...
 ```
+
+## Project Structure and Acknowledgements
+
+This project was built using the [Isaac Lab external project template generator](https://isaac-sim.github.io/IsaacLab/main/source/overview/developer-guide/template.html), which provides a robust starting point for custom RL environments and tasks in Isaac Lab.
+
+The base code for configuring and training the cabinet door opening task is adapted from the official Isaac Lab repository, specifically the cabinet manipulation task:
+- https://github.com/isaac-sim/IsaacLab/tree/main/source/isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/cabinet
+
+These resources provided the foundation for environment setup, reward shaping, and training scripts used in this assignment.
