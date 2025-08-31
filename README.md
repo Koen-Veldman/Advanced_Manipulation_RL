@@ -63,8 +63,13 @@ These resources provided the foundation for environment setup, reward shaping, a
 
 ## Results and Demonstration
 
-A video of the trained agent successfully opening the cabinet door is available here:
-[Cabinet Door Opening Demo](logs/skrl/Advanced_Manipulation_Cabinet/2025-08-26_22-24-03_ppo_torch/videos/play/rl-video-step-0.mp4)
+
+🎬 **Watch the Cabinet Door Opening Demo**
+
+<video width="640" controls>
+    <source src="logs/skrl/Advanced_Manipulation_Cabinet/2025-08-26_22-24-03_ppo_torch/videos/play/rl-video-step-0.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
 
 # Template for Isaac Lab Projects
