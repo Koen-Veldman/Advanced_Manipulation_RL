@@ -1,3 +1,72 @@
+## 🛠️ Installation
+
+1. Install Isaac Lab by following the [official installation guide](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html) (using conda).
+2. Clone this repository **outside** the `IsaacLab` directory.
+3. Install the package:
+
+    ```bash
+    python -m pip install -e source/Advanced_Manipulation_RL
+    ```
+
+## 🚀 Quickstart
+
+To list all available environments:
+
+```bash
+python scripts/list_envs.py
+```
+
+## 🐞 Debugging Tasks
+
+Two scripts can help verify your setup:
+
+**Zero Agent**
+
+Sends zero commands to all robots, confirming that the environment loads correctly:
+
+```bash
+python scripts/zero_agent.py --task Template-Advanced-Manipulation-Rl-Play-v0
+```
+
+**Random Agent**
+
+Sends random commands to all robots, confirming proper actuation:
+
+```bash
+python scripts/random_agent.py --task Template-Advanced-Manipulation-Rl-Play-v0
+```
+
+## 🏋️‍♂️ Training and Playback
+
+You can train a policy for the cabinet manipulation tasks (for example, the **Cabinet Door Opening** task) with the `skrl` library:
+
+```bash
+python scripts/skrl/train.py --task Template-Advanced-Manipulation-Rl-v0 --headless
+```
+
+After training, validate the learned policy:
+
+```bash
+python scripts/skrl/play.py --task Template-Advanced-Manipulation-Rl-Play-v0 --num_envs 4 
+```
+
+This ensures that your policy performs as expected in Isaac Lab before attempting real‑world transfer.
+
+## Project Structure and Acknowledgements
+
+This project was built using the [Isaac Lab external project template generator](https://isaac-sim.github.io/IsaacLab/main/source/overview/developer-guide/template.html), which provides a robust starting point for custom RL environments and tasks in Isaac Lab.
+
+The base code for configuring and training the cabinet door opening task is adapted from the official Isaac Lab repository, specifically the cabinet manipulation task:
+- https://github.com/isaac-sim/IsaacLab/tree/main/source/isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/cabinet
+
+These resources provided the foundation for environment setup, reward shaping, and training scripts used in this assignment.
+
+## Results and Demonstration
+
+A video of the trained agent successfully opening the cabinet door is available here:
+[Cabinet Door Opening Demo](logs/skrl/Advanced_Manipulation_Cabinet/2025-08-26_22-24-03_ppo_torch/videos/play/rl-video-step-0.mp4)
+
+
 # Template for Isaac Lab Projects
 
 ## Overview
@@ -134,11 +203,3 @@ Some examples of packages that can likely be excluded are:
 ...
 ```
 
-## Project Structure and Acknowledgements
-
-This project was built using the [Isaac Lab external project template generator](https://isaac-sim.github.io/IsaacLab/main/source/overview/developer-guide/template.html), which provides a robust starting point for custom RL environments and tasks in Isaac Lab.
-
-The base code for configuring and training the cabinet door opening task is adapted from the official Isaac Lab repository, specifically the cabinet manipulation task:
-- https://github.com/isaac-sim/IsaacLab/tree/main/source/isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/cabinet
-
-These resources provided the foundation for environment setup, reward shaping, and training scripts used in this assignment.

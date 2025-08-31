@@ -75,12 +75,15 @@ class AdvancedManipulationRlSceneCfg(InteractiveSceneCfg):
                 stiffness=10.0,
                 damping=1.0,
             ),
+            # To perform sensitivity analysis, uncomment and set the friction values below and rerun play_analysis.py
             "doors": ImplicitActuatorCfg(
                 joint_names_expr=["door_left_joint", "door_right_joint"],
                 effort_limit=87.0,
                 velocity_limit=100.0,
                 stiffness=1000.0,
                 damping=30.0,
+                # static_friction=1.0,
+                # dynamic_friction=1.25,
             ),
         },
     )
