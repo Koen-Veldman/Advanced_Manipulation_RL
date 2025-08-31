@@ -66,10 +66,7 @@ These resources provided the foundation for environment setup, reward shaping, a
 
 🎬 **Watch the Cabinet Door Opening Demo**
 
-<video width="640" controls>
-    <source src="logs/skrl/Advanced_Manipulation_Cabinet/2025-08-26_22-24-03_ppo_torch/videos/play/rl-video-step-0.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+![rl-video-step-0](https://github.com/user-attachments/assets/e3940be2-df03-471f-87bd-a33ff7de9e1f)
 
 
 # Template for Isaac Lab Projects
