@@ -75,15 +75,14 @@ class AdvancedManipulationRlSceneCfg(InteractiveSceneCfg):
                 stiffness=10.0,
                 damping=1.0,
             ),
-            # To perform sensitivity analysis, uncomment and set the friction values below and rerun play_analysis.py
+            
             "doors": ImplicitActuatorCfg(
                 joint_names_expr=["door_left_joint", "door_right_joint"],
                 effort_limit=87.0,
                 velocity_limit=100.0,
-                stiffness=1000.0,
-                damping=30.0,
-                # static_friction=1.0,
-                # dynamic_friction=1.25,
+                stiffness=10.0,
+                damping=2.5,
+                #friction=0.05,                     # set to 0.01, 0.05, 0.1, 1.0 for sensitivity analysis, set for training to 1 to train for friction environment
             ),
         },
     )
@@ -237,7 +236,8 @@ class EventCfg:
     #         "num_buckets": 16,
     #     },
     # )
-
+    #"door_right_nob_link"
+    ################### adapt "static_friction_range": (10,10) and "dynamic_friction_range": (10, 20) for visual sensitivity analysis#################
     cabinet_physics_material = EventTerm(
         func=mdp.randomize_rigid_body_material,
         mode="startup",
@@ -249,6 +249,19 @@ class EventCfg:
             "num_buckets": 16,
         },
     )
+
+    # cabinet_physics_material = EventTerm(
+    #     func=mdp.randomize_rigid_body_material,
+    #     mode="startup",
+    #     params={
+    #         "asset_cfg": SceneEntityCfg("cabinet", body_names="doors"),
+    #         "static_friction_range": (10, 12),
+    #         "dynamic_friction_range": (10, 20),
+    #         "restitution_range": (0.0, 0.0),
+    #         "num_buckets": 16,
+    #     },
+    # )
+
 
     reset_all = EventTerm(func=mdp.reset_scene_to_default, mode="reset")
 
